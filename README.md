@@ -1,7 +1,4 @@
 
-### `job-posting-service/README.md`
-
-```markdown
 # Job Posting Service
 
 ## Overview
