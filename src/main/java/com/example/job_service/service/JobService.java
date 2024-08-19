@@ -20,6 +20,10 @@ public class JobService {
         return jobRepository.save(job);
     }
 
+    public Job getJob(Long id) {
+        return jobRepository.findById(id).orElseThrow(() -> new RuntimeException("Job not found"));
+    }
+
     public List<Job> getAllJobs(){
         return jobRepository.findAll();
     }
@@ -33,6 +37,11 @@ public class JobService {
         job.setIndustry(jobDetails.getIndustry());
         job.setPostedDate(jobDetails.getPostedDate());
         job.setExpiryDate(jobDetails.getExpiryDate());
+        job.setRequirements(jobDetails.getRequirements());
+        job.setResponsibilities(jobDetails.getResponsibilities());
+        job.setEmploymentType(jobDetails.getEmploymentType());
+        job.setSalary(jobDetails.getSalary());
+        job.setPostedBy(jobDetails.getPostedBy());
 
         return jobRepository.save(job);
     }

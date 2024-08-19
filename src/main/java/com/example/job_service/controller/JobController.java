@@ -21,6 +21,11 @@ public class JobController {
         return new ResponseEntity<>(jobService.createJob(job), HttpStatus.CREATED);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Job> getJob(@PathVariable Long id){
+        return ResponseEntity.ok(jobService.getJob(id));
+    }
+
     @GetMapping
     public List<Job> getAllJobs(){
         return jobService.getAllJobs();
