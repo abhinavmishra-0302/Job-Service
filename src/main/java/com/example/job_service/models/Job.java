@@ -31,6 +31,9 @@ public class Job {
     @Column(name = "expiry_date")
     private Date expiryDate;
 
+    @ElementCollection
+    private List<String> skills;
+
     @Column(name= "posted_by")
     private String postedBy;
 
@@ -134,5 +137,13 @@ public class Job {
 
     public void setPostedBy(String postedBy) {
         this.postedBy = postedBy;
+    }
+
+    public List<String> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<String> skills) {
+        this.skills = skills;
     }
 }

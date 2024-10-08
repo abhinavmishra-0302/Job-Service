@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface JobRepository extends JpaRepository<Job, Long>{
     List<Job> findByTitleContainingAndLocationContaining(String title, String location);
+
+    String findTitleById(Long id);
 }

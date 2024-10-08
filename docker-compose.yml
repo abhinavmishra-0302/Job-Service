@@ -1,0 +1,26 @@
+services:
+  job-portal-service:
+    build: .
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/jobs
+      - SPRING_DATASOURCE_USERNAME=abhinav
+      - SPRING_DATASOURCE_PASSWORD=@Abhinav321
+    depends_on:
+      - mysql-db
+
+  mysql-db:
+    image : mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: "@Abhinav321"
+      MYSQL_DATABASE: jobs
+      MYSQL_USER: abhinav
+      MYSQL_PASSWORD: "@Abhinav321"
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
